@@ -30,7 +30,7 @@ public class QInsert extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String view = "/WEB-INF/view/QInsert.jsp";
+		String view = "/WEB-INF/view/qInsert.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}
@@ -43,11 +43,11 @@ public class QInsert extends HttpServlet {
 		String qId = request.getParameter("qId");
 		String qName = request.getParameter("qName");
 
-		if(id != null) {
+		if(qId != null) {
 			ManageDAO.qualification(qId,qName);
 		}
 
-		String view = "/WEB-INF/view/QInsert.jsp";
+		String view = "/WEB-INF/view/qInsert.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}

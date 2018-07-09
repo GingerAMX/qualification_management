@@ -177,6 +177,49 @@ public class ManageDAO {
 
 	//資格の登録
 	public static void qualification(String qId, String qName) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
 
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/managedb?useSSL=false",
+					"Abe",
+					"Dai");
+
+			String sql = "INSERT INTO Qualification VALUES(?,?)";
+
+			pstmt = con.prepareStatement(sql);
+
+			int qID = Integer.parseInt(qId);
+
+			pstmt.setInt(1, qID);
+			pstmt.setString(2, qName);
+
+			pstmt.executeUpdate();
+
+		} catch(SQLException | ClassNotFoundException e){
+			System.out.println("DBアクセスに失敗しました。");
+			e.printStackTrace();
+		} finally {
+			try {
+				if( pstmt != null){
+					pstmt.close();
+				}
+			} catch(SQLException e){
+				System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+
+			try {
+				if( con != null){
+					con.close();
+				}
+			} catch (SQLException e){
+			System.out.println("DB切断時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+		}
 	}
 }
