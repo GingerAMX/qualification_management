@@ -44,7 +44,7 @@ public class Index extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		ArrayList<Manage> result = ManageDAO.index();
-
+		//リクエストスコープに送信
 		request.setAttribute("resultList", result);
 
 		String view = "/WEB-INF/view/register.jsp";
