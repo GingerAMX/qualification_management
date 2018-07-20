@@ -32,7 +32,13 @@ public class Index extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String view = "/WEB-INF/view/index.jsp";
+		request.setCharacterEncoding("UTF-8");
+
+		ArrayList<Manage> result = ManageDAO.index();
+
+		request.setAttribute("resultList", result);
+
+		String view = "/WEB-INF/view/Index.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
 	}
@@ -41,15 +47,7 @@ public class Index extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 
-		ArrayList<Manage> result = ManageDAO.index();
-
-		request.setAttribute("resultList", result);
-
-		String view = "/WEB-INF/view/register.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-		dispatcher.forward(request, response);
 	}
 
 }

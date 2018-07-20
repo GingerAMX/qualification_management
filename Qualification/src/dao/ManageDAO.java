@@ -126,7 +126,7 @@ public class ManageDAO {
 					"Abe",
 					"Dai");
 
-			String sql = "SELECT qId,day,id,result FROM Manage";
+			String sql = "SELECT Manage.qId, qualification.qName, Manage.id, Students.name, day, result FROM Manage JOIN Qualification ON Manage.qId = Qualification.qId JOIN Students ON Manage.id = Students.id";
 
 			pstmt = con.prepareStatement(sql);
 
@@ -134,10 +134,12 @@ public class ManageDAO {
 
 			while(rs.next() == true) {
 				int qId = rs.getInt("qId");
-				String day = rs.getString("day");
+				String qName = rs.getString("qName");
 				int id = rs.getInt("id");
+				String name = rs.getString("name");
+				String day = rs.getString("day");
 				String result = rs.getString("result");
-				resultList.add(new Manage(qId,day,id,result));
+				resultList.add(new Manage(qId,qName,id,name,day,result));
 			}
 
 		} catch (ClassNotFoundException e) {

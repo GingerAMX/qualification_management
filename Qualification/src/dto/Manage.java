@@ -2,18 +2,22 @@ package dto;
 
 public class Manage {
 	private int qId;
-	private String day;
+	private String qName;
 	private int id;
+	private String name;
+	private String day;
 	private String result;
 
 	public Manage() {
 
 	}
 
-	public Manage(int qId, String day, int id, String result) {
+	public Manage(int qId, String qName, int id, String name, String day, String result) {
 		this.qId = qId;
-		this.day = day;
+		this.qName = qName;
 		this.id = id;
+		this.name = name;
+		this.day = day;
 		this.result = result;
 	}
 
@@ -25,12 +29,12 @@ public class Manage {
 		this.qId = qId;
 	}
 
-	public String getDay() {
-		return day;
+	public String getqName() {
+		return qName;
 	}
 
-	public void setDay(String day) {
-		this.day = day;
+	public void setqName(String qName) {
+		this.qName = qName;
 	}
 
 	public int getId() {
@@ -39,6 +43,22 @@ public class Manage {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDay() {
+		return day;
+	}
+
+	public void setDay(String day) {
+		this.day = day;
 	}
 
 	public String getResult() {
@@ -50,5 +70,5 @@ public class Manage {
 	}
 
 
-
 }
+
