@@ -17,6 +17,26 @@
 	ArrayList<Manage> resultList = (ArrayList<Manage>)request.getAttribute("resultList");
 
 	%>
+	<form action="/Qualification/Index" method="post">
+		<p>学年<label>
+					<select name="grade">
+						<option value="0" selected>-----------</option>
+						<option value="1">１</option>
+						<option value="2">２</option>
+						<option value="3">３</option>
+					</select>
+		</label></p>
+		<p>クラス<label>
+					<select name="class0">
+						<option value="0" selected>-----------</option>
+						<option value="A">Ａ</option>
+						<option value="B">Ｂ</option>
+						<option value="C">Ｃ</option>
+						<option value="D">Ｄ</option>
+					</select>
+		</label></p>
+		<input type="submit" value="更新">
+	</form>
 	<table border="1" align="center" id="delete">
 				<tr>
 					<th>ID</th><th>名前</th><th>著者名</th><th>貸し出し状況</th>
@@ -26,7 +46,8 @@
 				while(i < resultList.size()) {
 					Manage result = (Manage)resultList.get(i);
 					out.println("<tr>");
-					out.println("<td>" + result.getqId() + "</td>" + "<td>" + result.getqName() + "</td>"
+					out.println("<td>" + result.getGrade() + "</td>" + "<td>" + result.getClass0() + "</td>"
+					+ "<td>"+ result.getqId() + "</td>" + "<td>" + result.getqName() + "</td>"
 					+ "<td>" + result.getId() + "</td>" + "<td>" + result.getName() + "</td>"
 					+ "<td>" + result.getDay() + "</td>" + "<td>" + result.getResult() + "</td>");
 					out.println("<tr>");

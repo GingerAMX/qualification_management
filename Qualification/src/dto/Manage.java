@@ -1,6 +1,8 @@
 package dto;
 
 public class Manage {
+	private int grade;
+	private String class0;
 	private int qId;
 	private String qName;
 	private int id;
@@ -12,13 +14,31 @@ public class Manage {
 
 	}
 
-	public Manage(int qId, String qName, int id, String name, String day, String result) {
+	public Manage(int grade, String class0, int qId, String qName, int id, String name, String day, String result) {
+		this.grade = grade;
+		this.class0 = class0;
 		this.qId = qId;
 		this.qName = qName;
 		this.id = id;
 		this.name = name;
 		this.day = day;
 		this.result = result;
+	}
+
+	public int getGrade() {
+		return grade;
+	}
+
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
+
+	public String getClass0() {
+		return class0;
+	}
+
+	public void setClass0(String class0) {
+		this.class0 = class0;
 	}
 
 	public int getqId() {
@@ -69,6 +89,4 @@ public class Manage {
 		this.result = result;
 	}
 
-
 }
-

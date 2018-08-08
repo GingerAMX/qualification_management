@@ -47,7 +47,18 @@ public class Index extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		String grade = request.getParameter("grade");
+		String class0 = request.getParameter("class0");
 
+		if(grade != null) {
+			ArrayList<Manage> result = ManageDAO.indexIf(grade,class0);
+			request.setAttribute("resultList", result);
+		}
+
+		String view = "/WEB-INF/view/Index.jsp";
+		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+		dispatcher.forward(request, response);
 	}
 
 }
