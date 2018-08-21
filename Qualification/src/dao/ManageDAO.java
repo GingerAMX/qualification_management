@@ -206,7 +206,8 @@ public class ManageDAO {
 					+ "JOIN Qualification "
 					+ "ON Manage.qId = Qualification.qId "
 					+ "JOIN Students "
-					+ "ON Manage.id = Students.id";
+					+ "ON Manage.id = Students.id "
+					+ "WHERE Students.grade = ? && Students.class0 = ?";
 
 			String sql1 = "SELECT Students.grade, Students.class0, Students.name, Manage.qId, qualification.qName, "
 					+ "Manage.id, day, result "
@@ -227,9 +228,11 @@ public class ManageDAO {
 					+ "WHERE Students.class0 = ?";
 
 			// 両方選択されている場合
-			if("-----------".equals(grade) && "-----------".equals(class0)) {
+			if(!("-----------".equals(grade)) && !("-----------".equals(class0))) {
 				pstmt = con.prepareStatement(sql);
-
+				int gradE = Integer.parseInt(grade);
+				pstmt.setInt(1, gradE);
+				pstmt.setString(2, class0);
 				rs = pstmt.executeQuery();
 
 				while(rs.next() == true) {
@@ -246,6 +249,9 @@ public class ManageDAO {
 			// gradeのみ選択時
 			}else if(!("-----------".equals(grade)) && "-----------".equals(class0)) {
 				pstmt = con.prepareStatement(sql1);
+				int gradE = Integer.parseInt(grade);
+
+				pstmt.setInt(1, gradE);
 
 				rs = pstmt.executeQuery();
 
@@ -263,6 +269,8 @@ public class ManageDAO {
 			// classのみ選択時
 			}else if("-----------".equals(grade) && !("-----------".equals(class0))) {
 				pstmt = con.prepareStatement(sql2);
+
+				pstmt.setString(1, class0);
 
 				rs = pstmt.executeQuery();
 

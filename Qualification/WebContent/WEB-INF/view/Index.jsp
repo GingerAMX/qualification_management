@@ -39,7 +39,8 @@
 	</form>
 	<table border="1" align="center" id="delete">
 				<tr>
-					<th>ID</th><th>名前</th><th>著者名</th><th>貸し出し状況</th>
+					<th>資格ID</th><th>資格名</th><th>生徒番号</th><th>学生名</th><th>学年</th><th>クラス</th>
+					<th>日時</th><th>合否</th>
 				</tr>
 				<%
 				int i = 0;
