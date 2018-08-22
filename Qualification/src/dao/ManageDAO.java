@@ -228,7 +228,7 @@ public class ManageDAO {
 					+ "WHERE Students.class0 = ?";
 
 			// 両方選択されている場合
-			if(!("-----------".equals(grade)) && !("-----------".equals(class0))) {
+			if(!("0".equals(grade)) && !("0".equals(class0))) {
 				pstmt = con.prepareStatement(sql);
 				int gradE = Integer.parseInt(grade);
 				pstmt.setInt(1, gradE);
@@ -247,7 +247,8 @@ public class ManageDAO {
 					resultList.add(new Manage(qId,qName,id,name,Grade,Class,day,result));
 				}
 			// gradeのみ選択時
-			}else if(!("-----------".equals(grade)) && "-----------".equals(class0)) {
+			}else if(!("0".equals(grade)) && "0".equals(class0)) {
+
 				pstmt = con.prepareStatement(sql1);
 				int gradE = Integer.parseInt(grade);
 
@@ -267,7 +268,8 @@ public class ManageDAO {
 					resultList.add(new Manage(qId,qName,id,name,Grade,Class,day,result));
 				}
 			// classのみ選択時
-			}else if("-----------".equals(grade) && !("-----------".equals(class0))) {
+			}else if("0".equals(grade) && !("0".equals(class0))) {
+
 				pstmt = con.prepareStatement(sql2);
 
 				pstmt.setString(1, class0);
