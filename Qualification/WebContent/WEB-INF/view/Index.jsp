@@ -56,5 +56,6 @@
 				}
 				%>
 	</table>
+	<a href="/Qualification/Top">トップへ戻る</a>
 </body>
 </html>

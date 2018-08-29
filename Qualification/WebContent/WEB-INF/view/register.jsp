@@ -29,5 +29,6 @@
 		</label></p>
 		<input type="submit" value="登録">
 	</form>
+	<a href="/Qualification/Top">トップへ戻る</a>
 </body>
 </html>

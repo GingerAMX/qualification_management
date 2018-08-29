@@ -12,5 +12,6 @@
 		<p>資格名<label><input type="text" name="qName"></label></p>
 		<input type="submit" value="登録">
 	</form>
+	<a href="/Qualification/Top">トップへ戻る</a>
 </body>
 </html>
